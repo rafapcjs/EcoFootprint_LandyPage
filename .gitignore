@@ -5,3 +5,10 @@ dist-ssr
 .DS_Store
 .vscode/*
 !.vscode/extensions.json
+
+# Artefactos de build de TypeScript
+*.tsbuildinfo
+
+# Capturas/temporales de desarrollo
+_shot.mjs
+_s-*.png
