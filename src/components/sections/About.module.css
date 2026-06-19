@@ -1,0 +1,153 @@
+.section {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 120px 24px 90px;
+  /* el scroll horizontal ya lo controla body{overflow-x:hidden}; aquí dejamos
+     que el badge sobresalga del marco para un look más editorial */
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.title {
+  font-size: clamp(1.9rem, 3.6vw, 2.7rem);
+  font-weight: 800;
+  color: var(--color-primary);
+  margin: 14px 0 26px;
+}
+
+.paragraph {
+  color: var(--color-ink-soft);
+  font-size: 1.06rem;
+  margin-bottom: 16px;
+}
+
+.figure {
+  position: relative;
+  margin: 0;
+}
+
+.figureGlow {
+  position: absolute;
+  inset: -12% -12% -12% 6%;
+  background: radial-gradient(circle at 70% 30%, var(--color-accent-glow), transparent 65%);
+  filter: blur(10px);
+  z-index: 0;
+}
+
+.figureFrame {
+  position: relative;
+  z-index: 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: var(--color-primary);
+  rotate: 1.4deg;
+  transition: rotate 0.5s ease, transform 0.5s ease;
+}
+
+.figure:hover .figureFrame {
+  rotate: 0deg;
+  transform: translateY(-4px);
+}
+
+.figureFrame img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.figureFrame figcaption {
+  padding: 16px 20px;
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Tarjeta flotante que sobresale del marco (estilo editorial) */
+.badge {
+  position: absolute;
+  left: -22px;
+  bottom: 34px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 18px 12px 12px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-ring);
+}
+
+.badgeIcon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 11px; /* concéntrico: 16 − ~5 */
+  background: var(--grad-accent);
+  color: #06241a;
+  flex-shrink: 0;
+}
+
+.badgeText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.3;
+  font-size: 0.78rem;
+  color: var(--color-ink-soft);
+}
+
+.badgeText strong {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+@media (max-width: 880px) {
+  .section {
+    padding: 90px 24px 70px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .figure {
+    order: -1;
+  }
+
+  .figureFrame {
+    rotate: 0deg;
+  }
+
+  .figureFrame img {
+    aspect-ratio: 16 / 11;
+  }
+}
+
+@media (max-width: 560px) {
+  .section {
+    padding: 64px 20px 56px;
+  }
+
+  .grid {
+    gap: 30px;
+  }
+
+  .paragraph {
+    font-size: 1rem;
+  }
+
+  .badge {
+    left: 12px;
+    bottom: 14px;
+    padding: 10px 16px 10px 10px;
+  }
+}

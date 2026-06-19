@@ -1,0 +1,225 @@
+:root {
+  /* Paleta — verdes de microalga / laboratorio, con más profundidad */
+  --color-bg: #f4f7f3;
+  --color-bg-alt: #ffffff;
+  --color-ink: #0d1f18;
+  --color-ink-soft: #51635a;
+  --color-primary: #0f3d2e;
+  --color-primary-700: #09271d;
+  --color-accent: #1f9d63;
+  --color-accent-soft: #5fc88f;
+  --color-lime: #8ff0b6;
+  --color-accent-glow: rgba(47, 165, 107, 0.16);
+  --color-line: #e4ece2;
+
+  /* Gradientes reutilizables */
+  --grad-primary: linear-gradient(135deg, #0f3d2e 0%, #134d3a 60%, #1f7a52 100%);
+  --grad-accent: linear-gradient(135deg, #1f9d63 0%, #5fc88f 100%);
+  --grad-text: linear-gradient(100deg, #1f9d63 0%, #4fd089 55%, #8ff0b6 100%);
+
+  /* Tipografía */
+  --font-display: 'Sora', 'Segoe UI', system-ui, sans-serif;
+  --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+  /* Espaciado y radios */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+
+  /* Sombras multicapa: una capa de contacto nítida + una ambiental difusa.
+     Da una profundidad mucho más realista que una sola sombra. */
+  --shadow-sm: 0 1px 2px rgba(13, 31, 24, 0.05), 0 3px 8px rgba(13, 31, 24, 0.05);
+  --shadow-md: 0 2px 6px rgba(13, 31, 24, 0.05), 0 14px 36px rgba(13, 31, 24, 0.1);
+  --shadow-lg: 0 6px 16px rgba(13, 31, 24, 0.07), 0 32px 64px rgba(13, 31, 24, 0.14);
+  /* Anillo + elevación para tarjetas sobre fondo claro */
+  --shadow-ring: 0 0 0 1px rgba(13, 31, 24, 0.05), 0 10px 30px rgba(13, 31, 24, 0.08);
+
+  --maxw: 1160px;
+
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-bg);
+  color: var(--color-ink);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  text-wrap: pretty;
+  /* los glows decorativos se salen del marco: evitamos scroll lateral en móvil */
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.12;
+  margin: 0;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+p {
+  margin: 0;
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+/* Contorno neutro sutil para dar profundidad consistente a las imágenes
+   (negro puro a baja opacidad; nunca un tono tintado). */
+img {
+  outline: 1px solid rgba(0, 0, 0, 0.1);
+  outline-offset: -1px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--color-accent-soft);
+  color: var(--color-primary-700);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-accent-soft);
+  outline-offset: 2px;
+}
+
+/* Scrollbar discreto en navegadores webkit */
+::-webkit-scrollbar {
+  width: 12px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: #cdddce;
+  border: 3px solid var(--color-bg);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-soft);
+}
+
+/* Etiqueta superior reutilizada en las cabeceras de sección */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.eyebrow::before {
+  content: '';
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--grad-accent);
+}
+
+/* Palabra/segmento destacado con degradado animado (brillo sutil) */
+.accent-text {
+  background: var(--grad-text);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: textShimmer 7s ease-in-out infinite;
+}
+
+@keyframes textShimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Orbes de gradiente difuminados para dar profundidad de fondo.
+   Se colocan en un contenedor con position:relative y overflow:hidden. */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+  animation: orbFloat 16s ease-in-out infinite;
+}
+
+@keyframes orbFloat {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -26px, 0) scale(1.08);
+  }
+}
+
+/* Animación de aparición al hacer scroll (activada por useScrollReveal).
+   Transición interrumpible (no keyframes): combina opacidad, desplazamiento
+   y desenfoque. Propiedades explícitas, nunca `transition: all`. */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  filter: blur(6px);
+  transition-property: opacity, transform, filter;
+  transition-duration: 0.7s;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,100 @@
+.section {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 80px 24px 100px;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  padding: 64px 48px;
+  color: #fff;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(95, 200, 143, 0.32), transparent 55%),
+    radial-gradient(circle at 88% 85%, rgba(47, 165, 107, 0.38), transparent 52%),
+    var(--color-primary);
+}
+
+.cardGlow {
+  position: absolute;
+  inset: -30% -10% auto auto;
+  width: 60%;
+  height: 120%;
+  background: radial-gradient(circle, rgba(95, 200, 143, 0.28), transparent 62%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.card > *:not(.cardGlow) {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent-soft);
+}
+
+.title {
+  max-width: 24ch;
+  margin: 16px 0 26px;
+  font-size: clamp(1.7rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+}
+
+.body {
+  max-width: 64ch;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.paragraph {
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 1.08rem;
+}
+
+.highlights {
+  margin: 44px 0 0;
+  padding: 32px 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.highlight {
+  margin: 0;
+}
+
+.highlightValue {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.highlightLabel {
+  margin: 6px 0 0;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+@media (max-width: 760px) {
+  .section {
+    padding: 56px 20px 72px;
+  }
+
+  .card {
+    padding: 44px 26px;
+  }
+
+  .highlights {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}

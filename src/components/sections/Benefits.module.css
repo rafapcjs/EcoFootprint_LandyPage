@@ -1,0 +1,125 @@
+.section {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-bg-alt);
+}
+
+.orbA {
+  width: 380px;
+  height: 380px;
+  top: -120px;
+  left: -100px;
+  background: radial-gradient(circle, var(--color-accent-glow), transparent 70%);
+  opacity: 0.9;
+  filter: blur(50px);
+}
+
+.orbB {
+  width: 440px;
+  height: 440px;
+  bottom: -160px;
+  right: -120px;
+  background: radial-gradient(circle, rgba(143, 240, 182, 0.28), transparent 70%);
+  opacity: 0.9;
+  filter: blur(60px);
+  animation-delay: -8s;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 90px 24px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+}
+
+.card {
+  position: relative;
+  padding: 32px 26px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--color-line);
+  transition-property: transform, box-shadow, border-color, background;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+/* anillo de degradado que aparece al pasar el cursor */
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: var(--grad-accent);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  background: #fff;
+  box-shadow: 0 22px 50px rgba(31, 157, 99, 0.18);
+  border-color: transparent;
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--grad-primary);
+  color: var(--color-accent-soft);
+  margin-bottom: 22px;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.28s ease;
+}
+
+.card:hover .icon {
+  transform: scale(1.06) rotate(-4deg);
+}
+
+.cardTitle {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-ink);
+  margin-bottom: 10px;
+}
+
+.cardText {
+  color: var(--color-ink-soft);
+  font-size: 0.95rem;
+}
+
+@media (max-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .inner {
+    padding: 60px 20px;
+  }
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

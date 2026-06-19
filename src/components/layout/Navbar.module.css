@@ -1,0 +1,225 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 50;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.scrolled {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-sm);
+}
+
+.inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-primary);
+}
+
+.brandIcon {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: var(--color-primary);
+  color: var(--color-accent-soft);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.link {
+  position: relative;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-ink-soft);
+  transition: color 0.2s ease;
+}
+
+.link:hover {
+  color: var(--color-primary);
+}
+
+/* indicador de sección activa: punto-pastilla que crece bajo el enlace */
+.link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  height: 3px;
+  width: 0;
+  border-radius: 999px;
+  background: var(--grad-accent);
+  transform: translateX(-50%);
+  transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.link.active {
+  color: var(--color-primary);
+}
+
+.link.active::after {
+  width: 18px;
+}
+
+.header:not(.scrolled) .link.active {
+  color: #fff;
+}
+
+/* Estado inicial: barra transparente sobre el hero oscuro → texto claro */
+.header:not(.scrolled) .brand {
+  color: #fff;
+}
+
+.header:not(.scrolled) .brandIcon {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.header:not(.scrolled) .link {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.header:not(.scrolled) .link:hover {
+  color: #fff;
+}
+
+/* …salvo cuando el menú móvil (fondo claro) está desplegado */
+.header:not(.scrolled) .navOpen .link {
+  color: var(--color-ink-soft);
+}
+
+.header:not(.scrolled) .navOpen .link:hover {
+  color: var(--color-primary);
+}
+
+.header:not(.scrolled) .burger span,
+.header:not(.scrolled) .burger span::before,
+.header:not(.scrolled) .burger span::after {
+  background: #fff;
+}
+
+.cta {
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition-property: background, transform, scale;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+}
+
+.cta:hover {
+  background: var(--color-accent);
+  transform: translateY(-1px);
+}
+
+.cta:active {
+  scale: 0.96;
+}
+
+.burger {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border: none;
+  background: transparent;
+  position: relative;
+}
+
+.burger span,
+.burger span::before,
+.burger span::after {
+  content: '';
+  position: absolute;
+  left: 11px;
+  width: 22px;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+
+.burger span {
+  top: 21px;
+}
+
+.burger span::before {
+  top: -7px;
+}
+
+.burger span::after {
+  top: 7px;
+}
+
+.burger span[data-open='true'] {
+  background: transparent;
+}
+
+.burger span[data-open='true']::before {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.burger span[data-open='true']::after {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+@media (max-width: 820px) {
+  .burger {
+    display: block;
+  }
+
+  .nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    padding: 12px 24px 20px;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .navOpen {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .link {
+    padding: 12px 4px;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .cta {
+    margin-top: 8px;
+    text-align: center;
+  }
+}
