@@ -1,6 +1,6 @@
 # BioCaptura CO₂ — Landing page
 
-Página informativa y landing sobre la **captura de CO₂ mediante microalgas (Chlorella)**.
+Página informativa y landing sobre la **captura de CO₂ mediante microalgas (*Chlorella*)**.
 Construida con **React + TypeScript + Vite**, con componentes modulares y CSS Modules.
 
 ## Requisitos

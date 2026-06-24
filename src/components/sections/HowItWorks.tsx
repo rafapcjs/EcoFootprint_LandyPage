@@ -2,6 +2,7 @@ import type { MouseEvent } from 'react';
 import { PROCESS_STEPS } from '@/data/content';
 import { SectionHeading } from '../ui/SectionHeading';
 import { revealDelay } from '@/lib/reveal';
+import { italicizeSpecies } from '@/lib/sciName';
 import styles from './HowItWorks.module.css';
 
 export function HowItWorks() {
@@ -36,7 +37,7 @@ export function HowItWorks() {
               </span>
               <span className={styles.number}>{step.number}</span>
               <h3 className={styles.stepTitle}>{step.title}</h3>
-              <p className={styles.stepText}>{step.description}</p>
+              <p className={styles.stepText}>{italicizeSpecies(step.description)}</p>
             </li>
           ))}
         </ol>

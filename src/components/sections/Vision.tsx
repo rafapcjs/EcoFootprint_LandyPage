@@ -1,4 +1,5 @@
 import { CLOSING } from '@/data/content';
+import { italicizeSpecies } from '@/lib/sciName';
 import styles from './Vision.module.css';
 
 export function Vision() {
@@ -12,7 +13,7 @@ export function Vision() {
         <div className={styles.body}>
           {CLOSING.paragraphs.map((paragraph) => (
             <p key={paragraph.slice(0, 24)} className={styles.paragraph}>
-              {paragraph}
+              {italicizeSpecies(paragraph)}
             </p>
           ))}
         </div>
@@ -20,7 +21,7 @@ export function Vision() {
         <dl className={styles.highlights}>
           {CLOSING.highlights.map((item) => (
             <div key={item.value} className={styles.highlight}>
-              <dt className={styles.highlightValue}>{item.value}</dt>
+              <dt className={styles.highlightValue}>{italicizeSpecies(item.value)}</dt>
               <dd className={styles.highlightLabel}>{item.label}</dd>
             </div>
           ))}

@@ -1,6 +1,7 @@
 import { ABOUT } from '@/data/content';
 import { Icon } from '../ui/Icon';
 import { revealDelay } from '@/lib/reveal';
+import { italicizeSpecies } from '@/lib/sciName';
 import styles from './About.module.css';
 
 export function About() {
@@ -12,7 +13,7 @@ export function About() {
           <h2 className={styles.title}>{ABOUT.title}</h2>
           {ABOUT.paragraphs.map((paragraph) => (
             <p key={paragraph.slice(0, 24)} className={styles.paragraph}>
-              {paragraph}
+              {italicizeSpecies(paragraph)}
             </p>
           ))}
         </div>
@@ -21,7 +22,7 @@ export function About() {
           <div className={styles.figureGlow} aria-hidden="true" />
           <div className={styles.figureFrame}>
             <img src={ABOUT.image} alt={ABOUT.imageAlt} loading="lazy" />
-            <figcaption>{ABOUT.imageCaption}</figcaption>
+            <figcaption>{italicizeSpecies(ABOUT.imageCaption)}</figcaption>
           </div>
 
           <div className={styles.badge}>

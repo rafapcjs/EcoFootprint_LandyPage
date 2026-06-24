@@ -50,6 +50,31 @@ export interface FaqItem {
 export const SITE = {
   name: 'BioCaptura CO₂',
   tagline: 'Microalgas que convierten el dióxido de carbono en vida',
+  reference:
+    'Evaluación de la captación de CO₂ basada en el uso de microalgas, como alternativa en la reducción de la huella de carbono en la ciudad de Montería, Córdoba, Colombia. Acta FE - 09-24.',
+} as const;
+
+export interface Seedbed {
+  readonly name: string;
+  readonly logo: string;
+  readonly alt: string;
+}
+
+export const RESEARCH = {
+  group: 'Grupo de Investigación BOTABICA — COL 0018349',
+  seedbedsLabel: 'Semilleros de investigación',
+  seedbeds: [
+    {
+      name: 'BioAqua',
+      logo: '/media/semillero-bioaqua.jpeg',
+      alt: 'Logo del semillero de investigación BioAqua.',
+    },
+    {
+      name: 'Quercus',
+      logo: '/media/semillero-quercus.jpeg',
+      alt: 'Logo del semillero de investigación Quercus.',
+    },
+  ] as readonly Seedbed[],
 } as const;
 
 export const NAV_LINKS: readonly NavLink[] = [
@@ -95,7 +120,7 @@ export const STATS: readonly Stat[] = [
     decimals: 1,
     suffix: ' kg',
     label: 'CO₂ fijado',
-    detail: 'por cada kilogramo de biomasa de microalga producida.',
+    detail: 'Por cada kilogramo de biomasa de microalga producida.',
   },
   {
     icon: 'wind',
@@ -103,14 +128,14 @@ export const STATS: readonly Stat[] = [
     value: 50,
     suffix: '×',
     label: 'más eficiente',
-    detail: 'que las plantas terrestres en captura por área.',
+    detail: 'Que las plantas terrestres en captura por área.',
   },
   {
     icon: 'sun',
     value: 100,
     suffix: ' %',
     label: 'natural',
-    detail: 'sin químicos: solo luz, agua, nutrientes y CO₂.',
+    detail: 'Sin químicos: solo luz, agua, nutrientes y CO₂.',
   },
 ];
 
@@ -119,7 +144,7 @@ export const ABOUT = {
   title: 'Un pulmón microscópico cultivado en el laboratorio',
   paragraphs: [
     'La Chlorella es una microalga unicelular de agua dulce que crece a gran velocidad. Durante la fotosíntesis toma el CO₂ disuelto en el medio y, usando la energía de la luz, lo incorpora a su propia estructura liberando oxígeno.',
-    'En nuestros fotobiorreactores —desde matraces de laboratorio hasta garrafas de varios litros— inyectamos aire enriquecido con CO₂ y controlamos luz, temperatura y nutrientes para maximizar el crecimiento del cultivo.',
+    'En nuestros fotobiorreactores —desde matraces de laboratorio hasta garrafas de varios litros— inyectamos aire del ambiente, que ya trae el CO₂ presente en la atmósfera, y controlamos luz, temperatura y nutrientes para maximizar el crecimiento del cultivo.',
     'La biomasa resultante puede aprovecharse como biofertilizante, suplemento alimentario o materia prima para biocombustibles, cerrando un ciclo donde el carbono capturado se vuelve un recurso útil.',
   ],
   image: '/media/microalga-microscopio.jpeg',

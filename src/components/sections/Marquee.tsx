@@ -1,4 +1,5 @@
 import { MARQUEE } from '@/data/content';
+import { italicizeSpecies } from '@/lib/sciName';
 import styles from './Marquee.module.css';
 
 export function Marquee() {
@@ -11,7 +12,7 @@ export function Marquee() {
         {items.map((word, i) => (
           <span key={i} className={styles.item}>
             <span className={styles.dot} />
-            {word}
+            {italicizeSpecies(word)}
           </span>
         ))}
       </div>

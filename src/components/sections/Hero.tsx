@@ -1,5 +1,6 @@
 import { HERO } from '@/data/content';
 import { Icon } from '../ui/Icon';
+import { italicizeSpecies } from '@/lib/sciName';
 import styles from './Hero.module.css';
 
 export function Hero() {
@@ -31,7 +32,7 @@ export function Hero() {
         <h1 className={styles.title}>
           {HERO.title} <span className="accent-text">{HERO.titleAccent}</span>
         </h1>
-        <p className={styles.subtitle}>{HERO.subtitle}</p>
+        <p className={styles.subtitle}>{italicizeSpecies(HERO.subtitle)}</p>
 
         <div className={styles.actions}>
           <a href="#proceso" className={styles.primary}>
@@ -48,7 +49,7 @@ export function Hero() {
             <Icon name="leaf" size={20} />
           </span>
           <span className={styles.chipText}>
-            <strong>{HERO.chip.title}</strong>
+            <span className={styles.chipTitle}>{italicizeSpecies(HERO.chip.title)}</span>
             {HERO.chip.subtitle}
           </span>
         </div>

@@ -1,4 +1,4 @@
-import { NAV_LINKS, SITE } from '@/data/content';
+import { NAV_LINKS, RESEARCH, SITE } from '@/data/content';
 import { Icon } from '../ui/Icon';
 import styles from './Footer.module.css';
 
@@ -26,6 +26,21 @@ export function Footer() {
           ))}
         </nav>
       </div>
+
+      <div className={styles.research}>
+        <p className={styles.group}>{RESEARCH.group}</p>
+        <span className={styles.seedbedsLabel}>{RESEARCH.seedbedsLabel}</span>
+        <ul className={styles.seedbeds}>
+          {RESEARCH.seedbeds.map((seedbed) => (
+            <li key={seedbed.name} className={styles.seedbed}>
+              <img src={seedbed.logo} alt={seedbed.alt} loading="lazy" />
+              <span>{seedbed.name}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <p className={styles.reference}>{SITE.reference}</p>
 
       <div className={styles.bottom}>
         <span>
