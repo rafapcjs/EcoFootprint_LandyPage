@@ -51,7 +51,7 @@ export const SITE = {
   name: 'BioCaptura CO₂',
   tagline: 'Microalgas que convierten el dióxido de carbono en vida',
   reference:
-    'Evaluación de la captación de CO₂ basada en el uso de microalgas, como alternativa en la reducción de la huella de carbono en la ciudad de Montería, Córdoba, Colombia. Acta FE - 09-24.',
+    ' Evaluación de la captación de CO₂ basada en el uso de microalgas, como alternativa en la reducción de la huella de carbono en la ciudad de Montería, Córdoba, Colombia. Acta FE - 09-24. MAS VISIBLE, SI PUDES AL INICIO DE LA PAGINA, QUE QUEDE LO MÁS VISIBLE.',
 } as const;
 
 export interface Seedbed {
@@ -61,7 +61,7 @@ export interface Seedbed {
 }
 
 export const RESEARCH = {
-  group: 'Grupo de Investigación BOTABICA — COL 0018349',
+  group: 'Grupo de Investigación BOTÁNICA — COL 0018349',
   seedbedsLabel: 'Semilleros de investigación',
   seedbeds: [
     {
@@ -73,6 +73,11 @@ export const RESEARCH = {
       name: 'Quercus',
       logo: '/media/semillero-quercus.jpeg',
       alt: 'Logo del semillero de investigación Quercus.',
+    },
+    {
+      name: 'Herbario',
+      logo: '/media/herbario.jpeg',
+      alt: 'Logo del Herbario.',
     },
   ] as readonly Seedbed[],
 } as const;
@@ -143,14 +148,14 @@ export const ABOUT = {
   eyebrow: 'El proyecto',
   title: 'Un pulmón microscópico cultivado en el laboratorio',
   paragraphs: [
-    'La Chlorella es una microalga unicelular de agua dulce que crece a gran velocidad. Durante la fotosíntesis toma el CO₂ disuelto en el medio y, usando la energía de la luz, lo incorpora a su propia estructura liberando oxígeno.',
+    'Chlorella es una microalga unicelular de agua dulce que crece a gran velocidad. Durante la fotosíntesis toma el CO₂ disuelto en el medio , usando la energía de la luz, lo incorpora a su propia estructura liberando oxígeno.',
     'En nuestros fotobiorreactores —desde matraces de laboratorio hasta garrafas de varios litros— inyectamos aire del ambiente, que ya trae el CO₂ presente en la atmósfera, y controlamos luz, temperatura y nutrientes para maximizar el crecimiento del cultivo.',
     'La biomasa resultante puede aprovecharse como biofertilizante, suplemento alimentario o materia prima para biocombustibles, cerrando un ciclo donde el carbono capturado se vuelve un recurso útil.',
   ],
   image: '/media/microalga-microscopio.jpeg',
   imageAlt:
     'Células de microalga Chlorella vistas al microscopio, de color verde brillante.',
-  imageCaption: 'Chlorella sp. al microscopio — cada célula es una fábrica de oxígeno.',
+  imageCaption: 'Chlorella. Al microscopio — cada célula es una fábrica de oxígeno.',
   badge: {
     icon: 'leaf',
     value: 'Fotosíntesis',
@@ -169,11 +174,11 @@ export const PROCESS_STEPS: readonly ProcessStep[] = [
     number: '02',
     title: 'Inyección de CO₂',
     description:
-      'Se burbujea aire con dióxido de carbono dentro del cultivo. Las microalgas lo absorben y fotosintetizan, multiplicándose día a día.',
+      'Se suministra aire con dióxido de carbono dentro del cultivo. Las microalgas lo absorben y fotosintetizan, multiplicándose día a día.',
   },
   {
     number: '03',
-    title: 'Escalado en biorreactores',
+    title: 'Escalado en fotobiorreactores',
     description:
       'El cultivo se transfiere a garrafas y columnas de mayor volumen, donde la densidad de algas —y la captura de CO₂— aumenta.',
   },
@@ -181,22 +186,22 @@ export const PROCESS_STEPS: readonly ProcessStep[] = [
     number: '04',
     title: 'Cosecha y aprovechamiento',
     description:
-      'La biomasa se separa del agua y se seca para usarla como fertilizante, alimento o bioproducto. El agua se recircula.',
+      'La biomasa se separa del agua y se seca para usarla como fertilizante, alimento o bioproducto.  ',
   },
 ];
 
 export const GALLERY: readonly MediaItem[] = [
   {
     type: 'image',
-    src: '/media/investigador-laboratorio.jpeg',
+    src: '/media/investigador-laboratorio.png',
     alt: 'Investigador con bata y guantes revisando dos garrafas con cultivo denso de microalga.',
-    caption: 'Monitoreo de biorreactores de garrafa en el laboratorio.',
+    caption: 'Fotobiorreactor a escala piloto.',
   },
   {
     type: 'image',
     src: '/media/cultivo-erlenmeyer.jpeg',
     alt: 'Serie de matraces Erlenmeyer con cultivos de Chlorella en distintas etapas de crecimiento.',
-    caption: 'Escalado del cultivo: de matraz a garrafa.',
+    caption: 'Escalamiento del cultivo de microalgas.  '
   },
   {
     type: 'image',
@@ -286,6 +291,8 @@ export const CLOSING = {
     'El dióxido de carbono es el principal gas de efecto invernadero. En lugar de verlo solo como un problema, este proyecto lo trata como materia prima: las microalgas lo absorben y lo transforman en biomasa rica en proteínas, pigmentos y lípidos.',
     'A partir de un cultivo de laboratorio de Chlorella escalado en fotobiorreactores, demostramos que es posible capturar carbono de forma biológica, medible y replicable, sentando las bases para llevar el sistema a escuelas, comunidades e industrias.',
   ],
+  image: '/media/frascos.png',
+  imageAlt: 'Frascos con cultivo verde de microalga Chlorella en el laboratorio.',
   highlights: [
     { value: 'Chlorella sp.', label: 'Microalga utilizada en el cultivo' },
     { value: 'Fotobiorreactores', label: 'De matraz a columnas de varios litros' },

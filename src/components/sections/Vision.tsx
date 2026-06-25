@@ -7,15 +7,23 @@ export function Vision() {
     <section className={styles.section} id="vision">
       <div className={styles.card} data-reveal>
         <div className={styles.cardGlow} aria-hidden="true" />
-        <span className={styles.eyebrow}>{CLOSING.eyebrow}</span>
-        <h2 className={styles.title}>{CLOSING.title}</h2>
+        <div className={styles.top}>
+          <div className={styles.text}>
+            <span className={styles.eyebrow}>{CLOSING.eyebrow}</span>
+            <h2 className={styles.title}>{CLOSING.title}</h2>
 
-        <div className={styles.body}>
-          {CLOSING.paragraphs.map((paragraph) => (
-            <p key={paragraph.slice(0, 24)} className={styles.paragraph}>
-              {italicizeSpecies(paragraph)}
-            </p>
-          ))}
+            <div className={styles.body}>
+              {CLOSING.paragraphs.map((paragraph) => (
+                <p key={paragraph.slice(0, 24)} className={styles.paragraph}>
+                  {italicizeSpecies(paragraph)}
+                </p>
+              ))}
+            </div>
+          </div>
+
+          <figure className={styles.figure}>
+            <img src={CLOSING.image} alt={CLOSING.imageAlt} loading="lazy" />
+          </figure>
         </div>
 
         <dl className={styles.highlights}>

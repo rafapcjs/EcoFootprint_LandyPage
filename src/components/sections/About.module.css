@@ -71,7 +71,7 @@
 .badge {
   position: absolute;
   left: -22px;
-  bottom: 34px;
+  top: 24px;
   z-index: 2;
   display: inline-flex;
   align-items: center;
@@ -147,7 +147,7 @@
 
   .badge {
     left: 12px;
-    bottom: 14px;
+    top: 14px;
     padding: 10px 16px 10px 10px;
   }
 }
