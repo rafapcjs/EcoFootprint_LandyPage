@@ -156,7 +156,7 @@ export const ABOUT = {
   image: '/media/microalga-microscopio.jpeg',
   imageAlt:
     'Células de microalga Chlorella vistas al microscopio, de color verde brillante.',
-  imageCaption: 'Chlorella. Al microscopio — cada célula es una fábrica de oxígeno.',
+  imageCaption: 'Chlorella al microscopio — cada célula es una fábrica de oxígeno.',
   badge: {
     icon: 'leaf',
     value: 'Fotosíntesis',
