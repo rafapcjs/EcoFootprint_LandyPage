@@ -8,6 +8,7 @@ import { Stats } from './components/sections/Stats';
 import { Marquee } from './components/sections/Marquee';
 import { About } from './components/sections/About';
 import { HowItWorks } from './components/sections/HowItWorks';
+import { Co2Monitor } from './components/sections/Co2Monitor';
 import { Gallery } from './components/sections/Gallery';
 import { Benefits } from './components/sections/Benefits';
 import { Faq } from './components/sections/Faq';
@@ -26,6 +27,7 @@ export default function App() {
         <Marquee />
         <About />
         <HowItWorks />
+        <Co2Monitor />
         <Gallery />
         <Benefits />
         <Faq />

@@ -85,6 +85,7 @@ export const RESEARCH = {
 export const NAV_LINKS: readonly NavLink[] = [
   { id: 'proyecto', label: 'El proyecto' },
   { id: 'proceso', label: 'Cómo funciona' },
+  { id: 'monitor', label: 'Monitor' },
   { id: 'galeria', label: 'Galería' },
   { id: 'beneficios', label: 'Beneficios' },
   { id: 'faq', label: 'Preguntas' },
