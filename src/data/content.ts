@@ -82,6 +82,33 @@ export const RESEARCH = {
   ] as readonly Seedbed[],
 } as const;
 
+export interface Partner {
+  readonly name: string;
+  readonly logo: string;
+  readonly alt: string;
+}
+
+export const PARTNERS = {
+  label: 'Con el apoyo de',
+  items: [
+    {
+      name: 'Universidad de Córdoba',
+      logo: '/media/universidad-cordoba.jpeg',
+      alt: 'Logo de la Universidad de Córdoba.',
+    },
+    {
+      name: 'Alcaldía de Montería',
+      logo: '/media/alcaldia-monteria.jpeg',
+      alt: 'Logo de la Alcaldía de Montería.',
+    },
+    {
+      name: 'Terminal de Transporte de Montería S.A.',
+      logo: '/media/terminal-transporte-monteria.jpeg',
+      alt: 'Logo del Terminal de Transporte de Montería S.A.',
+    },
+  ] as readonly Partner[],
+} as const;
+
 export const NAV_LINKS: readonly NavLink[] = [
   { id: 'proyecto', label: 'El proyecto' },
   { id: 'proceso', label: 'Cómo funciona' },

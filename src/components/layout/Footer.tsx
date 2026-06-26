@@ -1,4 +1,4 @@
-import { NAV_LINKS, RESEARCH, SITE } from '@/data/content';
+import { NAV_LINKS, PARTNERS, RESEARCH, SITE } from '@/data/content';
 import { Icon } from '../ui/Icon';
 import styles from './Footer.module.css';
 
@@ -35,6 +35,17 @@ export function Footer() {
             <li key={seedbed.name} className={styles.seedbed}>
               <img src={seedbed.logo} alt={seedbed.alt} loading="lazy" />
               <span>{seedbed.name}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className={styles.partners}>
+        <span className={styles.partnersLabel}>{PARTNERS.label}</span>
+        <ul className={styles.partnerList}>
+          {PARTNERS.items.map((partner) => (
+            <li key={partner.name} className={styles.partner}>
+              <img src={partner.logo} alt={partner.alt} loading="lazy" />
             </li>
           ))}
         </ul>
