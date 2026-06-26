@@ -169,6 +169,36 @@
   color: rgba(255, 255, 255, 0.86);
 }
 
+/* Título formal del proyecto — destacado al inicio de la página */
+.project {
+  max-width: 60ch;
+  margin-top: 26px;
+  padding: 16px 20px;
+  border-left: 3px solid var(--color-accent-soft);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 8px 24px rgba(6, 36, 26, 0.25);
+}
+
+.projectLabel {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-lime);
+  margin-bottom: 6px;
+}
+
+.projectTitle {
+  margin: 0;
+  font-size: clamp(0.95rem, 1.6vw, 1.08rem);
+  font-weight: 600;
+  line-height: 1.45;
+  color: #fff;
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;

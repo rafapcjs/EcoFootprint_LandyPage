@@ -1,4 +1,4 @@
-import { HERO } from '@/data/content';
+import { HERO, SITE } from '@/data/content';
 import { Icon } from '../ui/Icon';
 import { italicizeSpecies } from '@/lib/sciName';
 import styles from './Hero.module.css';
@@ -33,6 +33,11 @@ export function Hero() {
           {HERO.title} <span className="accent-text">{HERO.titleAccent}</span>
         </h1>
         <p className={styles.subtitle}>{italicizeSpecies(HERO.subtitle)}</p>
+
+        <div className={styles.project}>
+          <span className={styles.projectLabel}>Proyecto de investigación</span>
+          <p className={styles.projectTitle}>{SITE.reference}</p>
+        </div>
 
         <div className={styles.actions}>
           <a href="#proceso" className={styles.primary}>

@@ -51,7 +51,7 @@ export const SITE = {
   name: 'BioCaptura CO₂',
   tagline: 'Microalgas que convierten el dióxido de carbono en vida',
   reference:
-    ' Evaluación de la captación de CO₂ basada en el uso de microalgas, como alternativa en la reducción de la huella de carbono en la ciudad de Montería, Córdoba, Colombia. Acta FE - 09-24. MAS VISIBLE, SI PUDES AL INICIO DE LA PAGINA, QUE QUEDE LO MÁS VISIBLE.',
+    'Evaluación de la captación de CO₂ basada en el uso de microalgas, como alternativa en la reducción de la huella de carbono en la ciudad de Montería, Córdoba, Colombia. Acta FE - 09-24.',
 } as const;
 
 export interface Seedbed {
